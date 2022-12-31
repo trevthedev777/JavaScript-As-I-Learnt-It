@@ -1,11 +1,20 @@
 # JavaScript: The Complete Guide
 
-This is GitHub Repo to demonstate how to read, use and understand the programming Language of JavaScript
+This is GitHub Repo to demonstrate how to read, use and understand the programming Language of JavaScript as taught by [Maximilian Schwarzmüller](https://www.udemy.com/user/maximilian-schwarzmuller/)
 
-## What is JavaScript?
+I found his style of teaching to be the most thorough and clear and I have created this repo with extensive notes to understanding the concepts and practices behind using and excelling in `JavaScript`
 
-JavaScript is a dynamic, interpreted and weakly typed programming language which was built with the purpose of running in host environments (e.g. inside of a webpage in the browser)
+This repo is set out in sections and each section has its own individual `README.md` file which explicitly explains all the core fundamentals being demonstrated as he teaches it but just with my `study notes`, please feel free to add to this repo if you can see of an easier way to explain the theory of the work
 
-Resources are founf in each section, with PDF slides and code tutorials
+Sections may contain **"mini-projects"** where the code will obtain comments that explain the programme from top to bottom
 
-The REPO will be updated and used as a tool for everyone, this repo will teach you how to work with JavaScript 
+I thought this would be a great way to try help the community as we all learn and understand this differently!
+
+Enjoy!
+
+## Future Release
+
+1. Upon completion of this course I will create a Landing page which will make for easy navigation to areas you need to see and access code
+2. Table of Contents
+
+
