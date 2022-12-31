@@ -130,4 +130,26 @@ console.log(calculationDescription) // (0 + 10) * 3 / 2 - 1
 
 ## Functions in JavaScript
 
+A `function` is a language construct which is used in programming languages which allows you to:
+
+1. Define a function
+```
+function greetUser(name) {  
+    alert('Hi ' + name);
+};
+```
+_you can (but don't have to) use **parameters** (eg. name) and you can (but don't have to) return values (via **return**)_
+
+The code does not run by itself, usually the code is loaded and "stored in memory" you will need to:
+
+2. Call Function
+```
+greetUser('Trevor'); // Hi Trevor
+```
+
+You can call the function back as often as you want throughout your code with different parameters (if it takes parameters)
+
+Every function execution then runs independent from other (possible) executions.
+
+Always try to give your function a name that describes its use.
 
