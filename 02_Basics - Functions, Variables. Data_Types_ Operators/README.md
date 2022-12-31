@@ -12,6 +12,8 @@
 - [Data Types in JavaScript](#data-types-in-javascript)
     - [Numbers and Strings](#numbers--strings)
 - [Functions in JavaScript](#functions-in-javascript)
+    - [Returning values in a function](#returning-values-in-a-function)
+- [The (Un)importance of Code Order](#the-unimportance-of-code-order)
 
 ## Introduction
 <hr>
@@ -129,6 +131,7 @@ console.log(calculationDescription) // (0 + 10) * 3 / 2 - 1
 🏠 [Back To Top](#the-unconventional-calculator)
 
 ## Functions in JavaScript
+<hr>
 
 A `function` is a language construct which is used in programming languages which allows you to:
 
@@ -153,3 +156,51 @@ Every function execution then runs independent from other (possible) executions.
 
 Always try to give your function a name that describes its use.
 
+### Returning values in a function
+
+This is the basic syntax of a basic addition function in JavaScript:
+
+```
+function addNumbers(num1, num2) {
+    const result = num1 + num2;
+    return result;
+}
+```
+
+This function contains two `parameters`, these are variables that are accessible only inside the function, the output of this function is to `return` the value of `num1 + num2`.
+
+In order to get a result you need to `call` that function like this:
+
+```
+addNumbers(num1, num2); // NaN
+```
+
+For this example, you will not get a result if you pass just `num1` and `num2`, but you need to input two `numerical` values to add
+
+```
+addNumbers(5, 8); // 13
+```
+
+You can also update `values` and declare `variables` with your `function callbacks` as per this example:
+
+```
+const defaultResult = 0;
+
+let currentResult = defaultResult;
+
+function addNumbers(num1, num2) {
+    const result = num1 + num2;
+    return result;
+}
+
+currentResult = addNumbers(5 , 5);
+console.log(currentResult); // 10
+```
+🏠 [Back To Top](#the-unconventional-calculator
+
+## The (Un)importance of Code order
+
+When writing `JS` code, you need to keep the following in mind:
+
+- you need to place your `const` and `let` variables above when you are referring to them in the script
+- you can declare your functions anywhere in the Script and call them anywhere, this is a special feature that is used in JavaScript

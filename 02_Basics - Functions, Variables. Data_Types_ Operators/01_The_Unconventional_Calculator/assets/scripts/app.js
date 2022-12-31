@@ -6,12 +6,11 @@ let currentResult = defaultResult;
 // the parameters are usually variables that are available in the function body
 function addNumbers(num1, num2) {
     const result = num1 + num2;
-    alert(`The result is: ${result}`);
+    return result;
 }
 
-addNumbers(5 , 8);
 // set currentResult to a new value
-currentResult = (currentResult + 10) * 3 / 2 - 1;
+currentResult = addNumbers(5 , 5);
 
 let calculationDescription = `(${defaultResult} + 10) * 3 / 2 - 1`;
 
