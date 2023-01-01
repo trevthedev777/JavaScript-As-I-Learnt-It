@@ -3,19 +3,17 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 
 // Functions
-// the parameters are usually variables that are available in the function body
-function addNumbers(num1, num2) {
-    const result = num1 + num2;
-    return result;
+function addNumbers() {
+    currentResult = currentResult + userInput.value;
+    outputResult(currentResult, '');
+    // console.log(currentResult)
 }
 
-// set currentResult to a new value
-currentResult = addNumbers(5 , 5);
+// addEventListener() takes two params
+// 1. The method to fire off the function
+// 2. The name of the function to execute
+// its important to keep in mind that the function you call here should not include the () or any arguments
+addBtn.addEventListener('click', addNumbers);
 
-let calculationDescription = `(${defaultResult} + 10) * 3 / 2 - 1`;
 
-// this is "calling a function"
-// remember the adding two numbers function example
-// you are inputting two arguments, 
-// one is to call the currentResult and then the text is to display the actual math
-outputResult(currentResult, calculationDescription);
+

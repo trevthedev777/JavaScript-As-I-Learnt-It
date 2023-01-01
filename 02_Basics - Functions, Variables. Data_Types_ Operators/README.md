@@ -2,19 +2,23 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+1. [Introduction](#introduction)
     - [The let Keyword](#the-let-keyword)
     - [The const Keyword](#the-const-keyword)
-- [Declaring and Naming Variables](#declaring-and-naming-variables)
+2. [Declaring and Naming Variables](#declaring-and-naming-variables)
     - [Good and Bad Practices](#alloweddisallowed-best-and-worst-practices-in-javascript)
     - [Working with Variables and Basic Operators](#working-with-variables-and-basic-operators)
         - [What are Operators?](#what-are-operators)
-- [Data Types in JavaScript](#data-types-in-javascript)
+3. [Data Types in JavaScript](#data-types-in-javascript)
     - [Numbers and Strings](#numbers--strings)
-- [Functions in JavaScript](#functions-in-javascript)
+4. [Functions in JavaScript](#functions-in-javascript)
     - [Returning values in a function](#returning-values-in-a-function)
     - [The (Un)importance of Code Order](#the-unimportance-of-code-order)
     - [An Introduction to Global and Local Scopes](#an-introduction-to-global-and-local-scopes)
+        - [Global Scope](#global-scope)
+        - [Local/Block Scope](#localblock-scope)
+        - [Shadowed Variables](#shadowed-variables)
+        - []()
 
 ## Introduction
 <hr>
@@ -207,3 +211,140 @@ When writing `JS` code, you need to keep the following in mind:
 - you can declare your functions anywhere in the Script and call them anywhere, this is a special feature that is used in JavaScript
 
 ### An Introduction to Global and Local Scopes
+
+To understand `scopes` it's best to understand the terminology of `Global Scope` and `Local/Block Scope`
+
+Here is a brief explanation on both:
+
+#### Global Scope
+
+A `Global Scope` is any data that is declared in the "root" of the script, meaning it is not created inside of a `function` for example:
+
+```
+let globalVariable = 'This is a Global Variable outside of the function'
+
+function localScope() {
+    let/const .... ;
+}
+```
+
+#### Local/Block Scope
+
+The `Local` or also known as `Block` level scope is usually accessed inside of the function and can only be used within the function
+
+```
+function localScope() {
+    let localScopeVariable = "I'm inside the block scope";
+}
+```
+
+If you try to access a block scope variable outside of the function in which its declared, you **will** receive an error telling you that the variable has not been defined.
+
+But it is possible to use a global variable inside the function, it's very important to understand this concept.
+
+#### Shadowed Variables
+
+What happens if you have this code?
+
+```
+let userName = 'Trevor';
+function greetUser(name) {
+  let userName = name;
+  alert(userName);
+}
+userName = 'Trev';
+greetUser('Trevor');
+```
+
+This will display an alert that says `'Trevor'` (**NOT** 'Trev')
+
+You might've expected that an error gets thrown because we use and declare userName more than once - and as you learned, that is not allowed.
+
+It indeed is **not allowed on the same level/ in the same scope**
+
+This, however, would fail:
+
+```
+let userName = 'Trevor';
+let userName = 'Trev';
+```
+
+Why does this happen? why is the first code snippet working then?
+
+Because we first create a global variable `userName` via
+
+```
+let userName = 'Trevor';
+```
+
+But then we never re-declare that on the global level (that would not be allowed).
+
+We only declare another variable inside of the function. But since variables in functions get their **own scope**, JavaScript does something which is called **"shadowing"**.
+
+It **creates a new variable on a different scope** - this variables does not overwrite or remove the global variable by the way - **both co-exist**.
+
+When referring to `userName` inside of the `greetUser` function we now **always refer to the local, shadowed variable**. Only if no such local variable existed, JavaScript would **fall back to the global variable**.
+
+#### More about the `return` Statement
+
+Some important things to know about the `return` statement
+
+1. Any code after the declared `return` statement won't be executed
+```
+function thisFunction(text, text) {
+    const result = string1 + string2;
+    return result;
+    ==============
+    const variable = 'this doesn't work'
+}
+```
+
+2. You can also return nothing:
+```
+function thisFunction() {
+    return;
+}
+```
+
+3. You can only have **ONE** return statement in a function
+
+#### Executing Functions "Indirectly"
+
+It can be confusing to see that there seem to be two ways of executing a function: 
+
+```
+function add() {
+  something = someNum + someOtherNum;
+}
+```
+
+`add()` vs `add`, It's important to understand why we have these "two ways"!
+
+**In general**, you call a function that you defined by **using it's name** (e.g. `add`) and `adding parentheses` (with any parameters the function might need - or empty parenthesis if no parameters aree required like the above example)
+
+Calling a function:
+
+=> `add()`
+
+This is how you execute a function from your code. Whenever JavaScript encounters this statement, it goes ahead and runs the code in the function. 
+
+**Sometimes however**, you **don't want to execute the function immediately**. You rather want to "tell JavaScript" that it should execute a certain function **at some point in the future** (e.g. when some event occurs(e.g. `.addEventListener()`)).
+
+That's when you don't directly call the function but when you instead provide JavaScript with the name of the function.
+
+This is how you call a function with an event:
+
+=> `someButton.addEventListener('click', add)`
+
+This snippet tells JavaScript: "When I click this button, execute my add function"
+
+`someButton.addEventListener('click', add())` Is the wrong syntax
+
+This is because JavaScript would encoubter that line when it parses/executes your script and register that event listener **AND IMMEDIATELY EXECUTE ADD**
+
+Also calling your function elsewhere in your code without the parenthesis would not execute the function
+
+🏠 [Back To Top](#the-unconventional-calculator)
+
+## Converting Data Types
+<hr>
