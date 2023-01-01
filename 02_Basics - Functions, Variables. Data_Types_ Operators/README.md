@@ -363,3 +363,20 @@ function addNumbers() {
 }
 ```
 
+This however is incorrect as in our function, we are trying to add a number with a string:
+
+`currenResult = number` and `userInput.valuue = string`
+
+```
+currentResult = currentResult + userInput.value;
+```
+
+so the output of our UI is as follows, because JavaScript has automatically converted our numbers to strings as a default:
+
+![Calculator String Output](https://github.com/trevthedev777/JavaScript-As-I-Learnt-It/blob/main/Readme_imgs/converting%20strings%20to%20numbers%20with%20parseInt().jpg?raw=true)
+
+
+Thankfully there is a way to work around this by using the `parseInt()` method, here is a brief overview of the actions these methods perform:
+
+- `parseInt()`, converts strings to numbers as whole numbers (e.g. 10), also known as `Integers`
+- `parseFloat()`, converts strings to numbers as decimal point numbers (e.g. 10.00) known as `Floats`

@@ -4,7 +4,7 @@ let currentResult = defaultResult;
 
 // Functions
 function addNumbers() {
-    currentResult = currentResult + userInput.value;
+    currentResult = currentResult + parseInt(userInput.value);
     outputResult(currentResult, '');
     // console.log(currentResult)
 }
