@@ -18,7 +18,7 @@
         - [Global Scope](#global-scope)
         - [Local/Block Scope](#localblock-scope)
         - [Shadowed Variables](#shadowed-variables)
-        - []()
+        - [More about the return Statement](#more-about-the-return-statement)
 
 ## Introduction
 <hr>
@@ -242,7 +242,7 @@ If you try to access a block scope variable outside of the function in which its
 
 But it is possible to use a global variable inside the function, it's very important to understand this concept.
 
-#### Shadowed Variables
+#### Shadow Variables
 
 What happens if you have this code?
 
@@ -348,3 +348,18 @@ Also calling your function elsewhere in your code without the parenthesis would 
 
 ## Converting Data Types
 <hr>
+
+It is important to try and remember that all `inputs` will register your code as `strings`, even if your input type is = `number`
+
+In our project folder `The Unconventional Calculator`, when are trying to display the output of the value the user types in the input field, JavaScript is automatically converting it to a string to be "safe"
+
+In our workspace at this time we had the following, the right code, but not exactly the right output, we wanted the `result` displayed on screen to display the total number of our calculation so as it stands the code reads:
+
+```
+function addNumbers() {
+    currentResult = currentResult + userInput.value;
+    outputResult(currentResult, '');
+    // console.log(currentResult)
+}
+```
+
