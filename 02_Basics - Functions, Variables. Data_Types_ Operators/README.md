@@ -13,7 +13,8 @@
     - [Numbers and Strings](#numbers--strings)
 - [Functions in JavaScript](#functions-in-javascript)
     - [Returning values in a function](#returning-values-in-a-function)
-- [The (Un)importance of Code Order](#the-unimportance-of-code-order)
+    - [The (Un)importance of Code Order](#the-unimportance-of-code-order)
+    - [An Introduction to Global and Local Scopes](#an-introduction-to-global-and-local-scopes)
 
 ## Introduction
 <hr>
@@ -196,11 +197,13 @@ function addNumbers(num1, num2) {
 currentResult = addNumbers(5 , 5);
 console.log(currentResult); // 10
 ```
-🏠 [Back To Top](#the-unconventional-calculator
+🏠 [Back To Top](#the-unconventional-calculator)
 
-## The (Un)importance of Code order
+### The (Un)importance of Code order
 
 When writing `JS` code, you need to keep the following in mind:
 
 - you need to place your `const` and `let` variables above when you are referring to them in the script
 - you can declare your functions anywhere in the Script and call them anywhere, this is a special feature that is used in JavaScript
+
+### An Introduction to Global and Local Scopes
