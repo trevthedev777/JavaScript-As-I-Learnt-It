@@ -2,10 +2,18 @@ const defaultResult = 0;
 // Variable declared and initialized
 let currentResult = defaultResult;
 
+function getUserInput() {
+    return parseInt(userInput.value);
+}
+
 // Functions
 function addNumbers() {
-    currentResult = currentResult + parseInt(userInput.value);
-    outputResult(currentResult, '');
+    const enteredNumber = getUserInput();
+    // here the currentResult will be 0
+    const description = `${currentResult} + ${enteredNumber}`;
+    // here the currentResult is the total of the above calculation
+    currentResult = currentResult + enteredNumber;
+    outputResult(currentResult, description);
     // console.log(currentResult)
 }
 

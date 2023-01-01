@@ -19,6 +19,10 @@
         - [Local/Block Scope](#localblock-scope)
         - [Shadowed Variables](#shadowed-variables)
         - [More about the return Statement](#more-about-the-return-statement)
+        - [Executing Functions Indirectly](#executing-functions-indirectly)
+    - [Converting Data Types](#converting-data-types)
+        - [Mixing Numbers and Strings](#mixing-numbers--strings)
+        - [Splitting Code into Functions](#splitting-code-into-functions)
 
 ## Introduction
 <hr>
@@ -380,3 +384,63 @@ Thankfully there is a way to work around this by using the `parseInt()` method, 
 
 - `parseInt()`, converts strings to numbers as whole numbers (e.g. 10), also known as `Integers`
 - `parseFloat()`, converts strings to numbers as decimal point numbers (e.g. 10.00) known as `Floats`
+
+so to get the correct output of our `userInput.value` we need to wrap the variable in a `parseInt()` to convert it to a whole number and to avoid the error we saw before when the output was displaying the whole number then appending each newly inserted value
+
+Example:
+```
+function addNumbers() {
+    currentResult = currentResult + parseInt(userInput.value);
+    outputResult(currentResult, '');
+}
+```
+
+This displays the total of: 10 + 5 = 15
+
+![Calculator Number Total Output](https://github.com/trevthedev777/JavaScript-As-I-Learnt-It/blob/main/Readme_imgs/converting%20strings%20to%20numbers%20with%20parseInt()%20after.jpg?raw=true)
+
+### Mixing Numbers & Strings
+
+You saw the example with a number and a "text number" being added `3 + '3'` => `'33'` in JavaScript.
+
+That happens beacuse the `+` operator also supports strings `(for string concatenation)`
+
+It's only the arithmetic operator that supports strings though. 
+
+JavaScript is pretty smart and therefore is actually able to handle this code:
+
+```
+3 * '3' = 9
+```
+
+**NOTE**: It yields the number `9`, **NOT** a string `'9'`
+
+Similarly, these operators also will work:
+
+`3 - '3' = 0` && `3 / 3 = 1`
+
+Just `3 + '3'` yields `'33'` because here JavaScript uses the "I can combine text" mode of the `+` operator and generates a string instead of a number.
+
+### Splitting Code into Functions 
+
+The handy thing with JavaScript is the ability to call multiple functions with just one `click-event`, see the below example:
+
+```
+const defaultResult = 0;
+let currentResult = defaultResult;
+
+function getUserInput() {
+    return parseInt(userInput.value);
+}
+
+function addNumbers() {
+    const enteredNumber = getUserInput();
+    const description = `${currentResult} + ${enteredNumber}`;
+    currentResult = currentResult + enteredNumber;
+    outputResult(currentResult, description);
+}
+
+addBtn.addEventListener('click', addNumbers);
+
+```
+as you can see, we are calling the `addNumbers()` function, however, we have created a different function called `getUserInput()` which just returns the `userInput.value` which has been parsed into a number, we need called that function on the variable `enteredNumbered` in the `addNumbers()` function, in essence, the click event that calls `addNumbers` will now access **BOTH** functions at the same time.
