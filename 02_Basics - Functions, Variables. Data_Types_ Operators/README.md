@@ -11,6 +11,10 @@
         - [What are Operators?](#what-are-operators)
 3. [Data Types in JavaScript](#data-types-in-javascript)
     - [Numbers and Strings](#numbers--strings)
+        - [String Template Lieteral](#string-template-literal)
+    - [Booleans](#booleans)
+    - [Objects](#objects)
+    - [Arrays](#arrays)
 4. [Functions in JavaScript](#functions-in-javascript)
     - [Returning values in a function](#returning-values-in-a-function)
     - [The (Un)importance of Code Order](#the-unimportance-of-code-order)
@@ -90,6 +94,8 @@ Operators | Name of Operator | Function | Example
 `/` | Division Operator | Divides Two Numbers | 4 / 4 = 1 
 `%` | Modulus Operator |Divides Two Numbers, returns remainder | 4 % 3 = 1
 `**`| Exponentiation Operator | Multiplies itself to itself a number of given times | 2 ** 3 = 8
+`+=`, `-=`, `*=`, `/=` | Plus/Minus/Times/Divides Equal Operator | Perform calculations and re-assign result to a variable | currentResult *= enteredNumber; // currentResult = currentResult * enteredNumber
+`++`, `--` | PlusPlus or MinusMinus | Increment/Decrement variable value + re-assign variable | number++
 
 🏠 [Back To Top](#the-unconventional-calculator)
 
@@ -136,6 +142,82 @@ currentResult = (currentResult + 10) * 3 / 2 - 1;
 let calculationDescription = `(${defaultResult} + 10) * 3 / 2 - 1`;
 console.log(calculationDescription) // (0 + 10) * 3 / 2 - 1
 ```
+
+### Booleans
+
+Booleans have only a `true` or `false` value in all programming languages and with JavaScript it is no different
+
+They are important for `conditional code` and situations where you only have two options
+
+### Objects
+
+They might be considered the most important data-types in JavaScript, `Objects` are important for grouped/related data, helps you also with organizing your data:
+
+Example:
+```
+const object = {
+    name: 'Name,
+    surname: 'Surname,
+    age: 33
+};
+```
+
+Let's talk further about `Objects`, they use something called `key/value` pairs, and are seprated by `commas`.
+
+Here are a few more important concepts to know about objects:
+
+1. You use `{}` to "group the data" - a semicolon `;` is used after the closing `}`. On functions we don't add that. As a rule of thumb, you can keep in mind that **a semicolon us used after `{}` if the `{}` are on the right side of the equal sign
+
+2. `key-value` pairs are "separated via a comma `(,)`, NOT" via a semicolon. Using s semicolon inside of an object (i.e. between `{}`), would be a **syntax error**
+
+3. Values are assigned to keys / properties **via a colon** `:`, **NOT** via an equal sign `=`. Using an equal sign inside of an object (i.e. between `{}`), would be a **syntax error**
+
+This would be wrong and throw a syntax error:
+
+```
+const worstPossibleUser = {
+    name = 'Trevor';
+    age = 33;
+};
+```
+
+### Arrays
+
+Arrays are initialized using `[]`, they are important for `list data`, unknown amounts of data (e.g.): Transactions, Calculations
+
+`Arrays` can contain mixed data, elements in arrays are separated using a `comma` 
+
+Example:
+```
+const arrStr = ['this is', 'an Array, 'populated with strings'];
+
+const arrNum = [1, 2 ,3];
+
+const arrMixed = ['Mixed, 'Array', 777];
+```
+
+How do we use `Arrays`?
+
+Here are two quick examples to give you a basic understanding how we could use them:
+
+Example:
+```
+let arrExample = []; 
+```
+
+Here we have initialized an `empty array`, meaning we have not pre-populated it with any data.
+
+Why would we do this? Well... to get a grasp on the concept with the power of `JavaScript` we have set it empty to show you. Now, we will access this `array` with our function and populate it with some for of data
+
+```
+let arrExample = [];
+const nums = [1, 2 , 3];
+
+arrExample.push(nums);
+console.log(arrExample); // [1, 2 , 3];
+```
+
+What we have done here is used a `JavaSCript Built In Method` called `push()`, we use it to "push" new data into other data, hence `push(nums)` pushed the data of the nums variable into the `arrExample` array
 
 🏠 [Back To Top](#the-unconventional-calculator)
 
@@ -444,3 +526,6 @@ addBtn.addEventListener('click', addNumbers);
 
 ```
 as you can see, we are calling the `addNumbers()` function, however, we have created a different function called `getUserInput()` which just returns the `userInput.value` which has been parsed into a number, we need called that function on the variable `enteredNumbered` in the `addNumbers()` function, in essence, the click event that calls `addNumbers` will now access **BOTH** functions at the same time.
+
+🏠 [Back To Top](#the-unconventional-calculator)
+
