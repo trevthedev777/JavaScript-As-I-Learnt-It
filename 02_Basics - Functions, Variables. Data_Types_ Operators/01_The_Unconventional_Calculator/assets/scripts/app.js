@@ -1,17 +1,17 @@
 const defaultResult = 0;
-// Variable declared and initialized
 let currentResult = defaultResult;
 
+// gets input from input field
 function getUserInput() {
     return parseInt(userInput.value);
 }
 
+// Generates and writes calculation log
 function createAndWriteOutput(operator, resultBeforeCalculation, calcNumber) {
     const description = `${resultBeforeCalculation} ${operator} ${calcNumber}`;
-    outputResult(currentResult, description);
+    outputResult(currentResult, description); // from vendor file
 }
 
-// Functions
 function addNumbers() {
     const enteredNumber = getUserInput();
     const initialResult =  currentResult;
@@ -40,10 +40,6 @@ function divide() {
     createAndWriteOutput('/', initialResult, enteredNumber);
 }
 
-// addEventListener() takes two params
-// 1. The method to fire off the function
-// 2. The name of the function to execute
-// its important to keep in mind that the function you call here should not include the () or any arguments
 addBtn.addEventListener('click', addNumbers);
 subtractBtn.addEventListener('click', subtract)
 multiplyBtn.addEventListener('click', multiply)
