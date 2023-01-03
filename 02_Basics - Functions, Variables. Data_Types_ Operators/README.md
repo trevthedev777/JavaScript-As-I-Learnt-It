@@ -1,4 +1,4 @@
-# The Unconventional Calculator
+# Section 2 - JavaScript Basics and The Unconventional Calculator
 
 ## Table of Contents
 
@@ -28,6 +28,7 @@
     - [Converting Data Types](#converting-data-types)
         - [Mixing Numbers and Strings](#mixing-numbers--strings)
         - [Splitting Code into Functions](#splitting-code-into-functions)
+5. [Importing Scripts Correctly with "defer" and "sync"](#importing-scripts-correctly-with-defer-and-async)
 
 ## Introduction
 <hr>
@@ -97,7 +98,7 @@ Operators | Name of Operator | Function | Example
 `**`| Exponentiation Operator | Multiplies itself to itself a number of given times | 2 ** 3 = 8
 `+=`, `-=`, `*=`, `/=` | Plus/Minus/Times/Divides Equal Operator | Perform calculations and re-assign result to a variable | currentResult *= enteredNumber; // currentResult = currentResult * enteredNumber
 `++`, `--` | PlusPlus or MinusMinus | Increment/Decrement variable value + re-assign variable | number++
-`typeof` | The Type of Operator | Lets you evaluate the value of a variable at runtime | typeof 3 // Number
+`typeof` | The Type of Operator | Lets you evaluate the value of a variable at runtime | `typeof 3 // Number`
 
 🏠 [Back To Top](#the-unconventional-calculator)
 
@@ -540,4 +541,10 @@ addBtn.addEventListener('click', addNumbers);
 as you can see, we are calling the `addNumbers()` function, however, we have created a different function called `getUserInput()` which just returns the `userInput.value` which has been parsed into a number, we need called that function on the variable `enteredNumbered` in the `addNumbers()` function, in essence, the click event that calls `addNumbers` will now access **BOTH** functions at the same time.
 
 🏠 [Back To Top](#the-unconventional-calculator)
+
+## Importing Scripts Correctly with "defer" and "async"
+<hr>
+
+In the resources folder you will find the slides on the explanations on the right way to load these and the ules that come along with it :-)
+
 
