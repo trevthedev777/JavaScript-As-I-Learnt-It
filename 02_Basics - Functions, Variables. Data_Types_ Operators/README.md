@@ -15,6 +15,7 @@
     - [Booleans](#booleans)
     - [Objects](#objects)
     - [Arrays](#arrays)
+    - [null / undefined / NaN](#null--undefined--nan)
 4. [Functions in JavaScript](#functions-in-javascript)
     - [Returning values in a function](#returning-values-in-a-function)
     - [The (Un)importance of Code Order](#the-unimportance-of-code-order)
@@ -96,6 +97,7 @@ Operators | Name of Operator | Function | Example
 `**`| Exponentiation Operator | Multiplies itself to itself a number of given times | 2 ** 3 = 8
 `+=`, `-=`, `*=`, `/=` | Plus/Minus/Times/Divides Equal Operator | Perform calculations and re-assign result to a variable | currentResult *= enteredNumber; // currentResult = currentResult * enteredNumber
 `++`, `--` | PlusPlus or MinusMinus | Increment/Decrement variable value + re-assign variable | number++
+`typeof` | The Type of Operator | Lets you evaluate the value of a variable at runtime | typeof 3 // Number
 
 🏠 [Back To Top](#the-unconventional-calculator)
 
@@ -218,6 +220,16 @@ console.log(arrExample); // [1, 2 , 3];
 ```
 
 What we have done here is used a `JavaSCript Built In Method` called `push()`, we use it to "push" new data into other data, hence `push(nums)` pushed the data of the nums variable into the `arrExample` array
+
+### null / undefined / NaN
+
+What are these and how do they work?
+
+Data Type | Definition | Rule of Thumb
+----------|------------|--------------
+`undefined` | Default value of uninitialized variables | You shouldn't assign undefined as a value manually
+`null` | Never assumed by default | You can assign this, it os a a value if you want to `reset`  / `clear` a variable
+`NaN` | Technically, it's of type number and can therefor be used in calculations | it yields a new `NaN` and it's the result of invalid calculations (e.g. 3 * 'hi' = `NaN`) 
 
 🏠 [Back To Top](#the-unconventional-calculator)
 
