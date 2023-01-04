@@ -1,10 +1,12 @@
 # Section 03 Efficient Development and Debugging
 
 ## Table of Contents
+<hr>
 
 1. [Introduction](#introduction)
 2. [The EMCAScript Standard](#the-ecmascript-standard)
 3. [How To Google Correctly](#how-to-google-correctly)
+4. [Error Messages](#error-messages)
 
 
 ## Introduction
@@ -43,6 +45,7 @@ Everyone needs to find a way to work with their IDE for themselves, its just the
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
 
 ## The ECMAScript Standard
+<hr>
 
 ECMAScript (the language "behind" JavaScript) is under active development and the current progress and active standard is of course documented.
 
@@ -55,6 +58,7 @@ Still, if you're interested in getting a glimpse behind the scenes, this documen
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
 
 ## How To Google Correctly
+<hr>
 
 It is very important to understand what the scope of your knowledge, It can be easy to forget the name of a `method` or `logic` you might want help with, 
 
@@ -67,3 +71,27 @@ But including **JavaScript** we are already narrowing down our search tto find t
 Generally the search will return many solutions or blogs and forums (i.e. [StackOverflow](https://stackoverflow.com/)) where many users have probably been in your shoes before 
 
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+
+## Error Messages
+<hr>
+
+Finding errors are generally simple, in your `IDE` (i.e. VS Code), you will generally be alerted in several places where your code might have an error or if you might have had a spelling error too, that will be easier to spot than the next problem
+
+If you get no errors in your IDE and your run your code and the application functions do not execute as you intended (which is generally normal), all you have to to is open up your `developer tools`,  usually there is an `error message` that is displayed  in the `console`, you can use that to successfully debug your code
+
+## Useful Resources & Links
+<hr>
+
+Attached, you find the source code for this section. The snapshots are also attached to individual lectures throughout this module (i.e. the lectures to which each snapshot belongs).
+
+---
+
+The following resources may be helpful.
+
+VS Code Docs: https://code.visualstudio.com/docs
+
+VS Code Keybindings: https://code.visualstudio.com/docs/getstarted/keybindings
+
+VS Code Extensions Docs: https://code.visualstudio.com/docs/editor/extension-gallery
+
+Google Chrome DevTools Docs: https://developers.google.com/web/tools/chrome-devtools/
