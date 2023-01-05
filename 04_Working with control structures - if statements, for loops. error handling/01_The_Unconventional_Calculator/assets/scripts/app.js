@@ -25,6 +25,24 @@ function writeToLog(operator, prevResult, operationNumber, newResult) {
 }
 
 function calculateResult(calculationType) {
+    // only returns true if all conditions are met
+    if (
+    calculationType !== 'ADD' && 
+    calculationType !== 'SUBTRACT' && 
+    calculationType !== 'MULTIPLY' &&   
+    calculationType !== 'DIVIDE' ||
+    !enteredNumber
+    ) {
+    return;
+    }
+
+    // returns true if at least one condition is met
+    // if (
+    // calculationType === 'ADD' || 
+    // calculationType === 'SUBTRACT' || 
+    // calculationType === 'MULTIPLY' ||   
+    // calculationType === 'DIVIDE'
+    // ) {
     const enteredNumber = getUserInput();
     const initialResult =  currentResult;
     let mathOperator;
@@ -45,7 +63,10 @@ function calculateResult(calculationType) {
 
     createAndWriteOutput(mathOperator, initialResult, enteredNumber);
     writeToLog(calculationType ,initialResult, enteredNumber, currentResult)
-}
+    }
+
+    
+// }
 
 function addNumbers() {
     calculateResult('ADD');
@@ -62,6 +83,8 @@ function multiply() {
 function divide() {
     calculateResult('DIVIDE');
 }
+
+
 
 addBtn.addEventListener('click', addNumbers);
 subtractBtn.addEventListener('click', subtract)

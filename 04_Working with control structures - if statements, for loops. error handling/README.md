@@ -1,56 +1,58 @@
 # Working with Control Statements: (if statements, for loops and Error Handling)
 
 ## Table of Contents
+
 <hr>
 
 1. [Introduction](#introduction)
-2. [Introduction to "if statements" and Boolean (Comparrison) operators](#working-with-control-statements-if-statements-for-loops-and-error-handling)
+2. [Introduction to "if statements" and Boolean (Comparison) operators](#working-with-control-statements-if-statements-for-loops-and-error-handling)
     - [Using Booleans in Conditions](#using-booleans-in-conditions)
     - [More on Text Comparisons](#more-on-text-comparisons)
 3. [Using "if" statements](#using-if-statements)
     - [Working with "if", "else" and "else-if" Statements](#working-with-if-else-and-else-if-statements)
     - [Beware When Comparing Objects and Arrays](#beware-when-comparing-objects-and-arrays)
-
+    - [The Logical "and"/"or" Operators](#the-logical-andor-operators)
+    - [Truthy and Falsy Values](#truthy-and-falsy-values)
 
 ## Introduction
+
 <hr>
 
 In most web applications, we don't always wrote code that is perfect and that we write just what we need, most times
 
-We are going to explore:
-    - Conditional Statements: `if statements` & Expressions
-    - `Boolean` Values & Operators
-    - `Loops` in JavaScript
-    - `Error Handling`
+We are going to explore: - Conditional Statements: `if statements` & Expressions - `Boolean` Values & Operators - `Loops` in JavaScript - `Error Handling`
 
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
 
-## Introduction to "if statements" and Boolean (Comparrison) operators
+## Introduction to "if statements" and Boolean (Comparison) operators
+
 <hr>
 
 **Boolean Operators are important for Conditional Code Return `true` or `false`**
 
 A list below:
 
-Operator | Known As |Its functionality | Example 
----------|-------------------|---------|---------
-`==` | Equal To | Check for value equality | ```a == b```  
-`!=` | Not Equal To | Check for value inequality | ```a != b```
-`===` and `!==` | Strictly Equal to and Not Strictly Equal To | the `===` checks for value and type equality | ```a === 'a'``` // false
-`>` & `<` | Greater than & Less Than | compares two values | ```3 > 2```
-`>=` & `<=` | Greater than or Equal to & Less Than or Equal to | compares two values | ```2 >=   2```
-`!` | Not True | Check it **NOT** true | ```(if !loggedIn)```
+| Operator        | Known As                                         | Its functionality                            | Example              |
+| --------------- | ------------------------------------------------ | -------------------------------------------- | -------------------- |
+| `==`            | Equal To                                         | Check for value equality                     | `a == b`             |
+| `!=`            | Not Equal To                                     | Check for value inequality                   | `a != b`             |
+| `===` and `!==` | Strictly Equal to and Not Strictly Equal To      | the `===` checks for value and type equality | `a === 'a'` // false |
+| `>` & `<`       | Greater than & Less Than                         | compares two values                          | `3 > 2`              |
+| `>=` & `<=`     | Greater than or Equal to & Less Than or Equal to | compares two values                          | `2 >=   2`           |
+| `!`             | Not True                                         | Check it **NOT** true                        | `(if !loggedIn)`     |
 
-### Using Booleans in Conditions 
+### Using Booleans in Conditions
 
 Understanding the **"Condition"**
 
 Always keep in mind that `condition` in
+
 ```
 if (condition) {
     _perform this code_
 }
 ```
+
 simply has to be a `boolean value`
 
 Often, you'll **generate** such a boolean value with the help of `===`, `>`, `<` etc. **All these operators yield boolean values** (without changing the variable/values you're using them on)
@@ -58,6 +60,7 @@ Often, you'll **generate** such a boolean value with the help of `===`, `>`, `<`
 Since `if` only wants a boolean, you of course **don't have to use such an operator**. If you already got a variable that holds a boolean, you can use it without any extra operator.
 
 Example:
+
 ```
 const isLoggedIn = true;
 if (isLoggedIn === true) {
@@ -102,6 +105,7 @@ That means that `b` is greater than `a` for example.
 JavaScript always looks at the first character and only considers other characters if the first character is similar. In addition, capital characters are considered to be smaller than lowercase characters.
 
 See these examples:
+
 ```
 'ab' > 'aa' // true
 'a' > 'B' // true
@@ -111,6 +115,7 @@ See these examples:
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
 
 ## Using "if" statements
+
 <hr>
 
 Using `if statements` can help perform specific code executions throughout our applications, Usually they care created within the scope of a function and as mentioned before can help us create `Boolean` values and depending on the outcome they can help us target the type of code to perform, have a look at our `Calculator Application` this is what we had before we started using an `if statement`
@@ -189,6 +194,7 @@ Example found in the next section.
 To finish off with the solution, we have created a **NEW** function and that helps us write all for of those functions but depending on the `calculation method` will execute only that function, not making sense? have a look at this solution:
 
 We have updated a function that will perform this logic based on whatever is the `true` outcome:
+
 ```
 function calculateResult(calculationType) {
     const enteredNumber = getUserInput();
@@ -214,7 +220,7 @@ function calculateResult(calculationType) {
 }
 ```
 
-Now, with this logic we can just simply call this into the `funcion` we need:
+Now, with this logic we can just simply call this into the `function` we need:
 
 ```
 function addNumbers() {
@@ -248,6 +254,58 @@ hobbies == moreHobbies // false
 hobbies === moreHobbies // false
 ```
 
+### The Logical 'and'/'or' Operators
 
+These are used to combine conditions and the operators are usually easy to remember:
+
+-   `&&` : and
+-   `||` : or
+
+Here's an example, imagine it like this:
+
+`Condition A AND Condition B OR Condition C`
+
+Now, in code it would look like this:
+
+```
+if (name==='Trevor' && age === 30 || isAdmin) {
+    <perform_this_code>
+}
+```
+
+Essentially, **Part 1: Evaluated together (yields true if each condition yields true)** then **Part 2: Evaluated as an alternative**
+
+So, it yields `true` if Part1 OR Part 2 yields true
+
+### Truthy and Falsy Values
+
+JavaScript Conditions work with Booleans (true/false) OR with `"truthy"` / `"falsy"` values
+
+Look at these two examples and notice that they both are correct codes and **BOTH EXECUTES**
+
+```
+const nameInput = 'name';
+if (nameInput === 'name') {...} // Works!
+```
+
+and now:
+
+```
+const nameInput = 'name';
+if (nameInput) {...} // Also Works!
+```
+
+JavaScript doesn't check if `nameInput` is equal to 'name'. `if (nameInput)` yields true is `nameInput` is a **non-empty string**
+
+This is because JavaScript tries to coerce values to a `Boolean` value if a `Boolean` is required!
+
+Important rules:
+
+-   `0` is treated as `false`
+-   ANY other number including negative numbers are treated as `true`
+-   `'' (empty strings)` are treated as `false`
+-   ANY other non-empty string including `false` is treated as `true`
+-   ALL objects and arrays, even empty ones are treated as `true`
+-   `null`, `undefined` and `NaN` are all treated as `false`
 
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
