@@ -7,15 +7,29 @@ const HEAL_VALUE = 10;
 let chosenMaxLife = 100;
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
+let hasBonusLife = true;
 
 // functions
 adjustHealthBars(chosenMaxLife);
 
 function endRound() {
+    const initialPlayerLife = currentPlayerHealth;
+    // * The monster hits us
     const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE); 
     currentPlayerHealth -= playerDamage;
 
-    // Battle Phase
+    if (currentPlayerHealth <= 0 && hasBonusLife) {
+        hasBonusLife = false;
+        removeBonusLife();
+        // * reset the health bar from before the monster hit us
+        currentPlayerHealth = initialPlayerLife;
+        alert('Bonus Life Used');
+        setPlayerHealth(initialPlayerLife);
+    } else if (currentPlayerHealth <= 0 && !hasBonusLife) {
+        alert('You Died');
+    }
+
+    // ! Battle Phase
     if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
         alert('You Win!');
     } else if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
@@ -54,6 +68,7 @@ function healPlayerHandler() {
         alert("You can't heal more than your maximum health");
         healValue = chosenMaxLife - currentPlayerHealth
     } else {
+        // * full heal value
         healValue = HEAL_VALUE;
     }
 
