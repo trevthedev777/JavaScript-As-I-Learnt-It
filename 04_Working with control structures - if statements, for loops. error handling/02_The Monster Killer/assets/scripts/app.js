@@ -12,6 +12,12 @@ let hasBonusLife = true;
 // functions
 adjustHealthBars(chosenMaxLife);
 
+function reset() {
+    currentMonsterHealth = chosenMaxLife;
+    currentPlayerHealth = chosenMaxLife;
+    resetGame(chosenMaxLife);
+}
+
 function endRound() {
     const initialPlayerLife = currentPlayerHealth;
     // * The monster hits us
@@ -32,10 +38,13 @@ function endRound() {
     // ! Battle Phase
     if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
         alert('You Win!');
+        reset();
     } else if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
-        alert('You Lost!');
+        alert('You Lost!');;
+        reset();
     } else if (currentPlayerHealth <= 0 && currentMonsterHealth <= 0) {
-        alert('You Both DEAD!')
+        alert('You Both DEAD!');
+        reset();
     }
 }
 
