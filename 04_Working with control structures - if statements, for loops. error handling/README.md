@@ -13,6 +13,7 @@
     - [Beware When Comparing Objects and Arrays](#beware-when-comparing-objects-and-arrays)
     - [The Logical "and"/"or" Operators](#the-logical-andor-operators)
     - [Truthy and Falsy Values](#truthy-and-falsy-values)
+    - [JavaScript Ternary Operators](#javascript-ternary-operators)
 
 ## Introduction
 
@@ -358,5 +359,31 @@ And that's exactly what JavaScript automatically does when it finds something li
 ```
 if (userInput) { ... }
 ```
+
+### JavaScript Ternary Operators
+
+`if statements` themselves return **NO** values, you just use them to execute code conditionally
+
+This does not work:
+
+```
+const userName = if (isLogin) {
+    return 'Trevor;
+} else {
+    return null;
+}
+```
+
+These are where we will start to use the `ternary operator`
+
+Example:
+
+```
+const userName = isLogin ? 'Trevor' : null
+```
+
+Lets break it down:
+
+Its an inline `if statement`, like a `shorthand`, in our example, the `condition` is `isLogin` then the `?` just means `if true` then returns 'Trevor' and the `:` means `else` and will return `null`
 
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
