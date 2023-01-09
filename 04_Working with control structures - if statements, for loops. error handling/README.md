@@ -14,6 +14,8 @@
     - [The Logical "and"/"or" Operators](#the-logical-andor-operators)
     - [Truthy and Falsy Values](#truthy-and-falsy-values)
     - [JavaScript Ternary Operators](#javascript-ternary-operators)
+    - [Logical Operator "Tricks" & Shorthand](#logical-operator-tricks--shorthand)
+    - [Logical Operators - A Quick Summary](#logical-operators---a-quick-summary)
 
 ## Introduction
 
@@ -385,5 +387,74 @@ const userName = isLogin ? 'Trevor' : null
 Lets break it down:
 
 Its an inline `if statement`, like a `shorthand`, in our example, the `condition` is `isLogin` then the `?` just means `if true` then returns 'Trevor' and the `:` means `else` and will return `null`
+
+### Logical Operator "Tricks" & Shorthand
+
+Its possible to convert a "truth / falsy" value to a real `Boolean`, you do this with the `Dohle Bang Operator` `!!`, which is simply two exclamations
+
+have a look at this Table:
+
+Operator | Definition | Example | Returns
+---------|------------|---------|--------
+`!!` | Boolean Coercion via **DOUBLE BANG** operator | !!"" , !!1 | `false`, `true`
+`OR` | Default value assignment via **OR** operator | const name  = someInput `OR` 'Trevor' | someInput if not falsy, 'Trevor' otherwise
+`&&` | Use value if condition is true via "AND" operator | const name = isLoggedIn && 'Trevor' | 'Trevor' is set if isLoggedIn is true, false otherwise
+
+Now lets practice some examples:
+
+```
+const userInput = ''; // undefined
+
+if (userInput) {...} // will return false because its an empty string
+```
+
+Best practice with Double Bang:
+```
+const userInput = '';
+
+const isValidInput = !!userInput;
+
+console.log(isValidInput); // false
+```
+
+remember with the `double bang operator`: when its truthy its turned to false and when its falsy its turned to true
+ 
+
+### Logical Operators - A Quick Summary
+
+As a reference which you can come back to (or print out), here's a quick summary of how logical operators and comparison operators behave in JavaScript:
+
+```
+const userName = 'Trevor';
+const altName = '';
+
+console.log(userName === 'Trevor'); // generates and prints boolean true
+console.log(userName); // wasn't touched, still a string 'Trevor'
+
+console.log(userName || null); // username is truthy and therefor returned by || => 'Trevor'
+
+console.log(altName ||  'Trevor'); // altName is Falsy (empty string), hence 'Trevor' is returned => 'Trevor'
+
+console.log(altName || ''); // both altName and '' are falsy, but if the first operand is falsy, the second one is always returned => ''
+
+console.log(altName || null || 'Anna'); // altName and null are falsy, 'Anna' is returned => 'Anna'
+
+console.log(userName && 'Anna'); // userName is Truthy, hence the second value is returned
+
+console.log(altName && 'Anna'); // altName is Falsy, hence first value is returned => ''
+
+console.log(userName && ''); // userName is truthy, hence second value is returned
+```
+Always keep in mind: **NO** operator (neither `===`, `>` etc. nor `&&` or `||`) changes the variable you might be using in comparison. In the above examples, the values stored in `userName` and `altName` are **NEVER** changed.
+
+`===`, `>` etc. just **generate new boolean values** which are used in the comparison. `||` and `&&` generate **NO** booleans, they just treat the **values before and after them as conditions** (which therefore need to yield boolean values and are coerced to booleans if required).
+
+Because of the above-described behaviors, you often use || in JavaScript to assign default/ fallback values to variables/ constants:
+
+```
+const enteredValue = ''; // let's assume this is set based on some input provided by the user, therefore it might be an empty string
+ 
+const userName = enteredValue || 'PLACEHOLDER'; // will assign 'PLACEHOLDER' if enteredValue is an empty string
+```
 
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
