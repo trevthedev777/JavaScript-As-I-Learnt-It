@@ -16,6 +16,7 @@
     - [JavaScript Ternary Operators](#javascript-ternary-operators)
     - [Logical Operator "Tricks" & Shorthand](#logical-operator-tricks--shorthand)
     - [Logical Operators - A Quick Summary](#logical-operators---a-quick-summary)
+    - [Switch-case statements](#switch-case-statement)
 
 ## Introduction
 
@@ -394,11 +395,11 @@ Its possible to convert a "truth / falsy" value to a real `Boolean`, you do this
 
 have a look at this Table:
 
-Operator | Definition | Example | Returns
----------|------------|---------|--------
-`!!` | Boolean Coercion via **DOUBLE BANG** operator | !!"" , !!1 | `false`, `true`
-`OR` | Default value assignment via **OR** operator | const name  = someInput `OR` 'Trevor' | someInput if not falsy, 'Trevor' otherwise
-`&&` | Use value if condition is true via "AND" operator | const name = isLoggedIn && 'Trevor' | 'Trevor' is set if isLoggedIn is true, false otherwise
+| Operator | Definition                                        | Example                              | Returns                                                |
+| -------- | ------------------------------------------------- | ------------------------------------ | ------------------------------------------------------ |
+| `!!`     | Boolean Coercion via **DOUBLE BANG** operator     | !!"" , !!1                           | `false`, `true`                                        |
+| `OR`     | Default value assignment via **OR** operator      | const name = someInput `OR` 'Trevor' | someInput if not falsy, 'Trevor' otherwise             |
+| `&&`     | Use value if condition is true via "AND" operator | const name = isLoggedIn && 'Trevor'  | 'Trevor' is set if isLoggedIn is true, false otherwise |
 
 Now lets practice some examples:
 
@@ -409,6 +410,7 @@ if (userInput) {...} // will return false because its an empty string
 ```
 
 Best practice with Double Bang:
+
 ```
 const userInput = '';
 
@@ -418,7 +420,6 @@ console.log(isValidInput); // false
 ```
 
 remember with the `double bang operator`: when its truthy its turned to false and when its falsy its turned to true
- 
 
 ### Logical Operators - A Quick Summary
 
@@ -445,6 +446,7 @@ console.log(altName && 'Anna'); // altName is Falsy, hence first value is return
 
 console.log(userName && ''); // userName is truthy, hence second value is returned
 ```
+
 Always keep in mind: **NO** operator (neither `===`, `>` etc. nor `&&` or `||`) changes the variable you might be using in comparison. In the above examples, the values stored in `userName` and `altName` are **NEVER** changed.
 
 `===`, `>` etc. just **generate new boolean values** which are used in the comparison. `||` and `&&` generate **NO** booleans, they just treat the **values before and after them as conditions** (which therefore need to yield boolean values and are coerced to booleans if required).
@@ -453,8 +455,50 @@ Because of the above-described behaviors, you often use || in JavaScript to assi
 
 ```
 const enteredValue = ''; // let's assume this is set based on some input provided by the user, therefore it might be an empty string
- 
+
 const userName = enteredValue || 'PLACEHOLDER'; // will assign 'PLACEHOLDER' if enteredValue is an empty string
 ```
 
+### Switch-Case Statement
+
+These are great for when we have multiple equality checks, you can use them for replacements for `if-else statements`
+
+The `switch` keyword **DOES NOT** take a condition but takes a single value
+
+So to be precise: switch takes an expression that yields a value!
+
+Lets break it down:
+
+```
+switch (event/var) {
+    case EVENT/VARIABLE:
+        _code to execute_
+    break // important to include after every case
+    default:
+        EVENT/VAR = {};
+}
+```
+
+A further breakdown can be found on [Stack Overflow](https://stackoverflow.com/questions/32576618/switch-statement-to-compare-values-greater-or-less-than-a-number/32576647)
+
 🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+
+## Loops
+
+<hr>
+
+### Introduction
+
+In JavaScript we have **FOUR** different types of Loops:
+
+| Loop Type   | Description                                                     | Example                                                                  |
+| ----------- | --------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| for loop    | Executes code a certain amount of times (with counter variable) | `for (let i = 0; i < 3: i++) { console.log(i); }`                        |
+| for of loop | Execute for every element in an array                           | `for (const el of array) { console.log(el); }`                           |
+| for in loop | Execute for every key in an object                              | `for (const key of object) { console.log(key); console.log(obj[key]); }` |
+| while loop  | Execute as long as a condition is `true`                        | `while (isLoggedIn) { console.log(key); console.log(obj[key]); }`        |
+
+1. ## for-loop
+2. for-of loop
+3. for-in loop
+4. while loop
