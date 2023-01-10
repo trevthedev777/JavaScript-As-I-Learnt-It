@@ -17,6 +17,9 @@
     - [Logical Operator "Tricks" & Shorthand](#logical-operator-tricks--shorthand)
     - [Logical Operators - A Quick Summary](#logical-operators---a-quick-summary)
     - [Switch-case statements](#switch-case-statement)
+4. [Loops](#loops)
+    - [Introduction to Loops](#introduction-1)
+    - [For Loops](#for-loops)
 
 ## Introduction
 
@@ -463,21 +466,26 @@ const userName = enteredValue || 'PLACEHOLDER'; // will assign 'PLACEHOLDER' if 
 
 These are great for when we have multiple equality checks, you can use them for replacements for `if-else statements`
 
-The `switch` keyword **DOES NOT** take a condition but takes a single value
+The `switch` keyword **MAY or MAY NOTs** take a condition but takes a single value
 
 So to be precise: switch takes an expression that yields a value!
 
 Lets break it down:
 
 ```
-switch (event/var) {
-    case EVENT/VARIABLE:
-        _code to execute_
-    break // important to include after every case
-    default:
-        EVENT/VAR = {};
+switch (true) {
+    case (age < 13):
+        alert("You must be 13 or older to play");
+        break;
+    case (age >= 13):
+        alert("You are old enough to play");
+        break;
 }
 ```
+
+Here switch will always try to find true value. the case which will return first true it'll switch to that.
+
+Suppose if age is less then 13 that's means that case will have true then it'll switch to that case.
 
 A further breakdown can be found on [Stack Overflow](https://stackoverflow.com/questions/32576618/switch-statement-to-compare-values-greater-or-less-than-a-number/32576647)
 
@@ -498,7 +506,38 @@ In JavaScript we have **FOUR** different types of Loops:
 | for in loop | Execute for every key in an object                              | `for (const key of object) { console.log(key); console.log(obj[key]); }` |
 | while loop  | Execute as long as a condition is `true`                        | `while (isLoggedIn) { console.log(key); console.log(obj[key]); }`        |
 
-1. ## for-loop
-2. for-of loop
-3. for-in loop
-4. while loop
+### For Loops
+
+For loops are the most common type of loops in the JavaScript programming language, here is an example and a brief overview
+
+```
+for (let i = 0; i < 3; i++) {
+    console.log('Print this 3 times');
+}
+```
+
+the output will be:
+
+```
+Print this 3 times
+Print this 3 times
+Print this 3 times
+```
+
+the first declaration is the initializer and then the second part is the length of the array or object to iterate through and the third is the amount of times it should increment as much as you set in the second segment, so you can also set it like this
+
+```
+for (let i = 0; i < = arr.length; i++) {
+    console.log('Will repeat however long this array's length is');
+}
+```
+
+### For of Loops
+
+`for of loops` are only usable on arrays and there is **no index** that is provided, although the syntax is much shorter its still better to use the `for loop` as you have access to the `index` and you use them by declaring `const`
+
+```
+for (const logEntry of battleLog) {
+    console.log(logEntry)
+}
+```
