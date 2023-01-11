@@ -179,16 +179,28 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
+    // ! This is a FOR LOOP
     for (let i = 0; i < battleLog.length; i++) {
         console.log('-------')
     }
+
+    // ! This is also a FOR LOOP
     // for (let i = 0; i< battleLog.length; i++){
     //     console.log(battleLog[i])
     // }
 
+    // ! This is a FOR OF loop
+    let i = 0;
     for (const logEntry of battleLog) {
-        console.log(logEntry);
+        console.log(`#${i}`);
+        // ! This is a FOR IN Loop
+        for (const key in logEntry) {
+            // console.log(key);
+            console.log(`${key} => ${logEntry[key]}`);
+        }
+        i++;
     }
+
     console.log(battleLog);
 }
 

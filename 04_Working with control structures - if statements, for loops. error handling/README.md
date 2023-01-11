@@ -20,6 +20,8 @@
 4. [Loops](#loops)
     - [Introduction to Loops](#introduction-1)
     - [For Loops](#for-loops)
+    - [For of Loops](#for-of-loops)
+    - [For in Loops](#for-in-loops)
 
 ## Introduction
 
@@ -534,10 +536,63 @@ for (let i = 0; i < = arr.length; i++) {
 
 ### For of Loops
 
-`for of loops` are only usable on arrays and there is **no index** that is provided, although the syntax is much shorter its still better to use the `for loop` as you have access to the `index` and you use them by declaring `const`
+`for of loops` are only usable on arrays and there is **no index** that is provided, although the syntax is much shorter its still better to use the `for loop` as you have access to the `index` with a `for of loop` in the parenthesis you use them by declaring `const`
 
 ```
 for (const logEntry of battleLog) {
     console.log(logEntry)
 }
+```
+
+### For in Loop
+
+These loops are helpful to really display your dynamic data:
+
+How to access the keys:
+
+```
+// ! For Of Loop
+for (cost of battleLog) {
+    console.log(`#${i}`);
+    <!-- for in loop -->
+    for (const key in logEntry) {
+        console.log(key);
+        console.log(logEntry['name_of_key_in_strings']);
+    }
+}
+```
+
+The name inside of `[]` **has to be a string or key (from your object)** (or a variable that holds the property name you want to access)!
+
+### While and Do While Loops
+
+While loops are very useful, they run a certain code while a certain condition is true and ends when its false, have a look at the example
+
+```
+let randomNumbers = [];
+
+let finished = false;
+
+while (!finished) {
+    const rndNumber = Math.random();
+    randomNumbers.push(rndNumber);
+    if(rndNumber > 0.5) {
+        finished = true;
+        console.log(randomNumbers)
+    }
+}
+
+// [0.6103392405370138]
+```
+
+as the condition was achieved in the first iteration the code ran and was ended on the first try
+
+a `Do While Loop` executes the body of the loop first and then the condition afterwards
+
+```
+let j = 0;
+do {
+    _execute_this_code_;
+    j++;
+} while (this condition);
 ```
