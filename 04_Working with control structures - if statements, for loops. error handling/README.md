@@ -544,6 +544,8 @@ for (const logEntry of battleLog) {
 }
 ```
 
+the last iterations value always survives   
+
 ### For in Loop
 
 These loops are helpful to really display your dynamic data:
