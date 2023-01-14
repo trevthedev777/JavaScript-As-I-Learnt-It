@@ -637,3 +637,7 @@ Essentially the loop would skip the fourth iteration (_remember the indexes star
 <hr>
 
 ### Introduction to Error Handling
+
+Some errors can't be avoided in JS they are beyond our control
+
+We will learn to write our own errors to the user in most of our applications using the `try {...} catch (error) {...}`
