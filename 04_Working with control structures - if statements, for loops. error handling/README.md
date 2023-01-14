@@ -22,6 +22,10 @@
     - [For Loops](#for-loops)
     - [For of Loops](#for-of-loops)
     - [For in Loops](#for-in-loops)
+    - [Controlling Loops with Break](#controlling-loops-with-break)
+    - [Controlling Loops with Continue](#controlling-loops-with-continue)
+5. [Error Handling](#error-handling)
+    - [Introduction to Error Handling](#introduction-1)
 
 ## Introduction
 
@@ -544,7 +548,7 @@ for (const logEntry of battleLog) {
 }
 ```
 
-the last iterations value always survives   
+the last iterations value always survives
 
 ### For in Loop
 
@@ -598,3 +602,38 @@ do {
     j++;
 } while (this condition);
 ```
+
+### Controlling Loops with Break
+
+The `break` keyword is a powerful keyword that can work in all loops in JavaScript, it commands the script to **STOP** running the code at that point and execute the code after that specific breakpoint
+
+### Controlling Loops with Continue
+
+The `continue` keyword is used to skip a certain iteration of your loops if needed for example:
+
+```
+for (let i = 0; i < 5; i++) {
+    console.log(i)
+}
+```
+
+This will inevitably print `0 1 2 3 4` in the console, but what if we want the loop to skip an iteration?
+
+```
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        continue;
+    }
+    console.log(i)
+}
+```
+
+Essentially the loop would skip the fourth iteration (_remember the indexes start at 0_) therefor outputting: `0 1 2 4` in your console
+
+🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+
+## Error Handling
+
+<hr>
+
+### Introduction to Error Handling
