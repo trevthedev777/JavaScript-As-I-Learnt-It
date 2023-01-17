@@ -647,15 +647,16 @@ Its very common that we will want to write out own errors that log to then conso
 
 ### Working with "try" "catch"
 
-A `try / catch` works really well when you have code the possibly could fail and you direct the app to run working code if that happens, in the section 4 monster mini project we use it when the user could insert the wrong value for the input on the games load, 
+A `try / catch` works really well when you have code the possibly could fail and you direct the app to run working code if that happens, in the section 4 monster mini project we use it when the user could insert the wrong value for the input on the games load,
 
 Example:
+
 ```
 try {
     // If this fails
     chosenMaxLife = getMaxLifeValues();
 } catch (error) {
-    // then do this 
+    // then do this
     console.log(error);
     chosenMaxLife = 100;
     alert('You entered something wrong');
@@ -663,3 +664,5 @@ try {
     Any other code that could be a last resort
 }
 ```
+
+🏠 [Back To Top](#section-03-efficient-development-and-debugging)
