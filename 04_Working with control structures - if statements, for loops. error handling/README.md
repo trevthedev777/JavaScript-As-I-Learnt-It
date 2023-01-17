@@ -26,6 +26,7 @@
     - [Controlling Loops with Continue](#controlling-loops-with-continue)
 5. [Error Handling](#error-handling)
     - [Introduction to Error Handling](#introduction-1)
+    - [Working with Try Catch](#working-with-try-catch)
 
 ## Introduction
 
@@ -641,3 +642,7 @@ Essentially the loop would skip the fourth iteration (_remember the indexes star
 Some errors can't be avoided in JS they are beyond our control
 
 We will learn to write our own errors to the user in most of our applications using the `try {...} catch (error) {...}`
+
+Its very common that we will want to write out own errors that log to then console in our applications
+
+### Working with "try" "catch"
