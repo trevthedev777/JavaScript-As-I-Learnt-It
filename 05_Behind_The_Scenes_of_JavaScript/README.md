@@ -102,3 +102,19 @@ var userName = 'Trevor';
 ```
 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
+
+## Strict Mode & Writing Good Code
+
+It is more used in `ES5` but it can still be used today, it can create unexpected errors in your code
+
+It is initiated like:
+
+```
+'use strict`;
+```
+
+Now strict mode is enabled, read about it further with the attached resource
+
+[JavaSctript Script Mode Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#changes_in_strict_mode)
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
