@@ -5,6 +5,7 @@
 1. [Introduction](#introduction)
 2. [ES5 vs ES6](#es5-vs-es6)
 3. [var vs let vs const](#var-vs-let-vs-const)
+4. [Understanding "hoisting"](#understanding-hoisting)
 
 ## Introduction
 
@@ -17,6 +18,8 @@ This section is theory based where we will look at the evolution of JavaScript o
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
 
 ## ES5 vs ES6
+
+<hr>
 
 What is this? ES = `ECMAScript`, which the language specification, it is the language behind JavaScript the official documentation can be found here [ECMAScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
 
@@ -45,5 +48,57 @@ Older browsers are being phased out and we can see a modernization and standard 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
 
 ## var vs let vs const
+
+<hr>
+
+`var` creates a variable that you can't really change, it sounds identical to `const` but isn't exactly, we will learn why as we go along
+
+`var` - Available since JavaScripts inception
+`const` and `let` - Available since `ES6`
+
+I would suggest that using `var` in modern day JavaScript could unofficially be declared as bad practice, lets have a look at a example:
+
+We create a function called `greet()` and we log it to the console:
+
+```
+var name = 'Trevor';
+
+function greet() {
+    var age = 30
+    var name = 'Tyrone'
+    console.log(name, age);
+}
+
+
+console.log(name);
+console.log(hobbies);
+greet();
+```
+
+Its extremely important to note that `var` can be accessed **ANYWHERE** in your code whereas `let` and `const` are specifically block-scoped declarations unless written globally
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
+
+## Understanding "hoisting"
+
+<hr>
+
+`Hoisting` is a behind the scenes functionality that works best described with `var`, its not useful practice but always good to know, see the below example:
+
+```
+console.log(userName); // undefined (without errors)
+
+var userName = 'Trevor';
+```
+
+Essentially, JavaScript is initializing this for us but we donit see it, essentially behind the scenes this is happening:
+
+```
+var userName;
+
+console.log(userName); // undefined (without errors)
+
+var userName = 'Trevor';
+```
 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
