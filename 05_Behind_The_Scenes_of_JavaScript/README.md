@@ -118,3 +118,5 @@ Now strict mode is enabled, read about it further with the attached resource
 [JavaSctript Script Mode Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#changes_in_strict_mode)
 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
+
+
