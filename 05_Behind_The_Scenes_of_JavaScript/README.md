@@ -119,4 +119,4 @@ Now strict mode is enabled, read about it further with the attached resource
 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
 
-
+.
