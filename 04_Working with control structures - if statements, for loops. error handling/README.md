@@ -36,7 +36,7 @@ In most web applications, we don't always wrote code that is perfect and that we
 
 We are going to explore: - Conditional Statements: `if statements` & Expressions - `Boolean` Values & Operators - `Loops` in JavaScript - `Error Handling`
 
-🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+🏠 [Back To Top](#working-with-control-statements-if-statements-for-loops-and-error-handling)
 
 ## Introduction to "if statements" and Boolean (Comparison) operators
 
@@ -126,7 +126,7 @@ See these examples:
 'a' > 'b' // false
 ```
 
-🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+🏠 [Back To Top](#working-with-control-statements-if-statements-for-loops-and-error-handling)
 
 ## Using "if" statements
 
@@ -496,7 +496,7 @@ Suppose if age is less then 13 that's means that case will have true then it'll 
 
 A further breakdown can be found on [Stack Overflow](https://stackoverflow.com/questions/32576618/switch-statement-to-compare-values-greater-or-less-than-a-number/32576647)
 
-🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+🏠 [Back To Top](#working-with-control-statements-if-statements-for-loops-and-error-handling)
 
 ## Loops
 
@@ -631,7 +631,7 @@ for (let i = 0; i < 5; i++) {
 
 Essentially the loop would skip the fourth iteration (_remember the indexes start at 0_) therefor outputting: `0 1 2 4` in your console
 
-🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+🏠 [Back To Top](#working-with-control-statements-if-statements-for-loops-and-error-handling)
 
 ## Error Handling
 
@@ -665,4 +665,4 @@ try {
 }
 ```
 
-🏠 [Back To Top](#section-03-efficient-development-and-debugging)
+🏠 [Back To Top](#working-with-control-statements-if-statements-for-loops-and-error-handling)

@@ -6,6 +6,10 @@
 2. [ES5 vs ES6](#es5-vs-es6)
 3. [var vs let vs const](#var-vs-let-vs-const)
 4. [Understanding "hoisting"](#understanding-hoisting)
+5. [How Code is Parsed and Compiled](#how-code-is-parsed-and-compiled)
+6. [Inside the JavaScript Engine: How the Code Executes](#inside-the-javascript-engine-how-the-code-executes)
+    - [Heap](#heap)
+    - [Stack](#stack)
 
 ## Introduction
 
@@ -119,4 +123,50 @@ Now strict mode is enabled, read about it further with the attached resource
 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
 
-.
+## How Code is Parsed and Compiled
+
+<hr>
+
+Whenever the browser detects a `script` being loaded in an HTML file, it automatically executes it.
+
+What Does that mean?
+
+Well, the details depend on the **browser/engine** being used, these engines do their parsing in the engine and this method typically takes part in 2 parts:
+
+1. Interpreter
+    - The interpreter loads the html, then script and reads it, then it translates it into bytecode then goes ahead and runs the script
+2. Compiler
+    - This is usually referred to as a `just in time(jiT)` compiler
+
+Communication Bridges between `JavaScript` and `C++` Logic is built into the browser
+
+More details about the Google Chrome engine:
+
+[V8 Engine Explained](https://hackernoon.com/javascript-v8-engine-explained-3f940148d4ef)
+
+More details about the FireFox engine:
+
+[Spider Monkey Docs](https://firefox-source-docs.mozilla.org/js/index.html)
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
+
+## Inside the JavaScript Engine: How the Code Executes
+
+<hr>
+
+Its all about managing memory and execution steps, these are usually broken up into 2 concepts:
+
+1. Heap
+2. Stack
+
+### Heap
+
+Memory Allocation : Stores data in your system memory and manages to access it
+
+### Stack
+
+Execution Content: Manages your program flow (function calls and communication)
+
+`JavaScript` is single-threaded meaning: _"One thing happens at a time"_
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
