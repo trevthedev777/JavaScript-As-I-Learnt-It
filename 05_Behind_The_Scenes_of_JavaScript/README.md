@@ -10,6 +10,9 @@
 6. [Inside the JavaScript Engine: How the Code Executes](#inside-the-javascript-engine-how-the-code-executes)
     - [Heap](#heap)
     - [Stack](#stack)
+7. [Deep Dive into JavaScript Language vs Browser APIs](#deep-dive-into-javascript-language-vs-browser-apis)
+8. [Primitive vs Reference Values](#primitive-vs-reference-values)
+9. [garbage Collection and Memory Management](#garbage-collection-and-memory-management)
 
 ## Introduction
 
@@ -171,4 +174,153 @@ Execution Content: Manages your program flow (function calls and communication)
 
 🏠 [Back To Top](#behind-the-scenes-of-javascript)
 
+## Deep Dive into JavaScript Language vs Browser APIs
 
+In this section so far we covered the JavaScript engine and what it does inside the browser. We also learned that there is a difference between the JS code execution and Browser APIs you might tap into during that execution.
+
+Essentially, you can split the code you write into these two pieces:
+
+1. **The JavaScript Language**
+   Understand core syntax (`let`, `const` etc) but does **NOT** know anything about the DOM for example
+
+2. **Browser APIs**
+   Not responsible for understanding your code (thats what point 1 does) but instead responsible for exposing APIs like the DOM API which you can use from inside your script code
+
+**The JavaScript Language (1)** is advanced **Emca International Technical Committee 39 (TC39)**, which is a group that's part of the Emca organization. It's responsible for adding new features to the JavaScript language itself. For example, in the past, it was responsible for add `let` and `const`.
+
+You can **learn more about TC39** here [TC39](https://tc39.es/)
+
+And you can explore the current proposals that are being discussed by that group - features hat potentially make it into the core JavaScript language in the future: [TC39 Proposals Repo](https://github.com/tc39/proposals)
+
+**IMPORTANT**: Just because a feature becomes part of the language does **NOT** mean that all JavaScript engines immediately support that feature. Of course the people developing the engines are doing their best to provide support as soon as possible but that process simply also takes time.
+
+On the other hand, engine vendors also **sometime start supporting certain feature **BEFORE TC39** made a feature an official part** of JavaScript. In the end, it's of course totally up to the people working on the engines to decide which syntax their JS understands.
+
+**Browser APIs** also are standardized because the different browser vendors (Google for Chrome, Microsoft for Edge etc.) of course want to (roughly) provide feature parity and similar APIs. Its wouldn't be a great developer experience if you had different functions which you need to call to make your scripts works in different browsers. Although, in the past, this was pretty normal.
+
+Nowadays, thankfully, this is getting way better because **there also is a working group that works on browser APIs** - so that different features and APIs in different browsers are avoided as good as possible.
+
+That working group has the name **WHATWG** and you can learn more about it here: [WHATWG](https://whatwg.org/)
+
+If you're interested in learning more about the APIs that were/are 'managed' by this group, you can check this site [WHATWG APIs](https://spec.whatwg.org/)
+
+**THIS WORKING GROUP IS NOT RELATED TO TC39!**
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
+
+## Primitive vs Reference Values
+
+<hr>
+
+In `JavaScript` we have **two categories of types/values**
+
+1. Primitive Values
+
+These are: `strings`, `numbers`, `Booleans`, `null`, `undefined`, `Symbol`.
+
+Every variable that you create in JavaScript is stored as a **primitive value**
+
+Its stored on memory normally on the stack and are short living and it does not consume much memory and are easily reused
+
+When you copy a `variable` that holds a primitive value then the value is actually copied.
+
+Lets have a look at an example:
+
+```
+let name = 'Trevor';
+console.log(name) // Trevor
+
+<!-- You can store this new variable with the data of the name variable -->
+let anotherUser = name;
+console.log(anotherUser); // Trevor
+
+<!-- Now if you reassign the value of the original variable -->
+name = 'Tyrone';
+console.log(name); // Tyrone
+
+<!-- it will not automatically change the anotherName variable, that retains its original value -->
+console.log(anotherUser);
+```
+
+2. Reference Values
+
+All other `object` in JavaScript are reference values and they are "more expensive to create"
+
+These are stores in memory **(Heap)**, variable stores a pointer (address) to location in memory, so the variable stores the address of that memory, or simply: **a reference to the object stored in memory (hence "reference values")**
+
+When copying a reference value, `(= assign to different variable) **copies the pointer/reference**`
+
+Here is an example:
+
+```
+let hobbies = ['Sports'];
+let newHobbies = hobbies;
+
+console.log(hobbies); // ['Sports']
+console.log(newHobbies); // ['Sports']
+
+<!-- Lets add to the array -->
+hobbies.push('Cooking');
+
+console.log(hobbies); // ['Sports', Cooking'];
+
+<!-- Now, because its a reference value, it changes the OBJECT and both are changed, unlike a primitive value -->
+
+console.log(newHobbies); // ['Sports', Cooking'];
+
+```
+
+It has changed both because we have only copied the 'pointer' or the 'address' of the array so the element itself was never duplicated or copied. Which means if we change one object, we change the other array
+
+Another Example:
+
+```
+let person = {age: 30};
+let anotherPerson = person;
+
+<!-- updated value -->
+anotherPerson.age =32;
+
+console.log(person); // 32
+console.log(anotherPerson); // 32
+```
+
+Now there are cases that we need to copy the objects and we need the original value to remain the same and only change the copied variable. How do we do this?
+
+Simply by using the `spread operator`
+
+```
+let yetAnotherPerson = { ...person };
+
+console.log(yetAnotherPerson) // {age: 32}
+
+<!-- Updated original variable -->
+person.age = 30;
+
+<!-- Does not change the copied variable -->
+console.log(yetAnotherPerson) // {age: 32}
+```
+
+Lets look and explore some logic with it:
+
+```
+const person1 = {age: 30};
+const person2 = {age: 30};
+
+person1 === person2
+// false
+```
+
+Why is it `false`? well thats because we have only compared the pointer values and to keep in mind that even if the object have the same data they are **DIFFERENT** objects so they will **ALWAYS** return `false`
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
+
+## Garbage Collection and Memory Management
+
+<hr>
+
+[Mempry Management Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+
+[V8 garbage Collection Garbage](https://v8.dev/blog/free-garbage-collection)
+
+🏠 [Back To Top](#behind-the-scenes-of-javascript)
