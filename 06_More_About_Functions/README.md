@@ -134,3 +134,19 @@ Now, what this does is when you access the console using your developer tools, y
 ![Function as an Object in the console](https://github.com/trevthedev777/JavaScript-As-I-Learnt-It/blob/main/Readme_imgs/Section_6_consoledir.jpg?raw=true)
 
 🏠 [Back To Top](#more-about-functions)
+
+## Function Expressions: Storing Functions in Variables
+
+Expressions are something that can yield you values, so it is possible to create a function as an expression
+
+Example of declaring an anonymous function as an expression
+
+```
+const start = function() {
+    console.log('Game is loading...')
+}
+
+startBtn.addEventListener('click', start);
+```
+
+🏠 [Back To Top](#more-about-functions)
