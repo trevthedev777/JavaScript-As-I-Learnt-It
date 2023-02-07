@@ -10,6 +10,7 @@
 4. [Functions are Objects](#functions-are-objects)
 5. [Function Expressions: Storing Functions in Variables](#function-expressions-storing-functions-in-variables)
 6. [Function Declarations vs Function Expressions](#function-declarations-vs-function-expressions)
+7. [Anonymous Functions](#anonymous-functions)
 
 ## Introduction
 
@@ -188,6 +189,7 @@ So you have to keep in mind that you have to initialize your functions on load i
 Keep in mind that if you are going to use the `function expression` approach, that you can't call your function before it's been declared
 
 Example:
+
 ```
 start();
 
@@ -197,6 +199,23 @@ const start = function() {
 
 ```
 
-You will receive an error in the console stating that you can't initialize the function before its declaration 
+You will receive an error in the console stating that you can't initialize the function before its declaration
+
+🏠 [Back To Top](#more-about-functions)
+
+## Anonymous Functions
+
+<hr>
+
+Anonymous functions are bets used (if you are going to use them) in once-off occasions, let's revert back to the current rock, paper, scissors game we are going to build, the bets place to practice this would be to, remove the function expression, and create this anonymous function in your eventListener
+
+Example of Anonymous Function in the eventListener:
+```
+startGameBtn.addEventListener('click', function() {
+    console.log('Game is starting....');
+})
+```
+
+If you run into an error and you check your console, usually you will find in the error, the line number of where the error is showing, which of course is really useful when we are debugging our code. Keep in mind that when we have a large script, we will be okay y checking the line number but if you create the function with a name, it will also tell you in your console in which function the problem is happening.
 
 🏠 [Back To Top](#more-about-functions)
