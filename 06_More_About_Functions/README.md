@@ -6,6 +6,8 @@
 
 1. [Introduction](#introduction)
 2. [Recapping: What We Already Know](#recapping-what-we-already-know)
+3. [Functions vs Methods](#functions-vs-methods)
+4. [Functions are Objects](#functions-are-objects)
 
 ## Introduction
 
@@ -63,6 +65,64 @@ sayHi('Trevor');
 
 `'Trevor'` is an **argument** of the function therefore - for the `name` parameter to be precise.
 
-Since both concepts obviously are extremely close connected, we will often declare __"let's define which arguments a function receives"__, or something comparable, since defining the arguments of a function in the end means that you set up its parameters (and vice-versa)
+Since both concepts obviously are extremely close connected, we will often declare **"let's define which arguments a function receives"**, or something comparable, since defining the arguments of a function in the end means that you set up its parameters (and vice-versa)
+
+🏠 [Back To Top](#more-about-functions)
+
+## Functions vs Methods
+
+<hr>
+
+In short, a written `function` is a function, and a `method` is also a function but is supplied by the browser engine, these are usually called using `dot notation`
+
+Example of a function:
+
+```
+function startGame() {
+    ....
+}
+```
+
+Example of a method:
+
+```
+starGameBtn.addEventListener('click', startGame);
+```
+
+`Objects` , can have properties that we can call, also by using `dot notation`
+
+Example of Object and Properties:
+
+```
+const person = {name: 'Trevor'};
+
+console.log(person.name) // 'Trevor'
+```
+
+Now, the difference is that with methods, we use and execute them as a function, these are built in functions that JavaScript provides to us
+
+You can have functions in objects and then call them like a regular method:
+
+Example of a function in a object:
+
+```
+const person = {
+    name: 'Trevor',
+    greet: function greet() {
+        console.log('Hello There');
+    }
+};
+
+<!-- Now you can call it like a method as you have declared it in an object -->
+person.greet()
+```
+
+🏠 [Back To Top](#more-about-functions)
+
+## Functions are Objects
+
+<hr>
+
+Functions themselves are **also methods**
 
 🏠 [Back To Top](#more-about-functions)
