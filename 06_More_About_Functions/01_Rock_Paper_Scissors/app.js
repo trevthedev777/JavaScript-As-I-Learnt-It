@@ -2,7 +2,7 @@ const startGameBtn = document.getElementById('start-game-btn');
 
 // Using a function as an expression
 const start = function() {
-    console.log('Game is staarting....')
+    console.log('Game is starting....')
 }
 
 // function startGame() {

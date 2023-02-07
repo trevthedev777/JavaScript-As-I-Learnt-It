@@ -8,6 +8,8 @@
 2. [Recapping: What We Already Know](#recapping-what-we-already-know)
 3. [Functions vs Methods](#functions-vs-methods)
 4. [Functions are Objects](#functions-are-objects)
+5. [Function Expressions: Storing Functions in Variables](#function-expressions-storing-functions-in-variables)
+6. [Function Declarations vs Function Expressions](#function-declarations-vs-function-expressions)
 
 ## Introduction
 
@@ -137,6 +139,8 @@ Now, what this does is when you access the console using your developer tools, y
 
 ## Function Expressions: Storing Functions in Variables
 
+<hr>
+
 Expressions are something that can yield you values, so it is possible to create a function as an expression
 
 Example of declaring an anonymous function as an expression
@@ -148,5 +152,51 @@ const start = function() {
 
 startBtn.addEventListener('click', start);
 ```
+
+🏠 [Back To Top](#more-about-functions)
+
+## Function Declarations vs Function Expressions
+
+<hr>
+
+Just to reiterate the difference, see the below examples:
+
+Example of a function declaration / function statement:
+
+```
+function multiply(a, b) {
+    return a * b;
+}
+```
+
+Example of a function expression:
+
+```
+const multiply = function(a, b) {
+    return a * b;
+}
+```
+
+So there is a slight difference between writing them these different ways and that is:
+
+-   With a `function declaration`, it gets goisted to the top and it can ve declared anywhere in the file, and is can also be reused throughout the script (i.e also after its used)
+
+-   With `function expressions`, it also gets hoisted but it does not get initialized/defined, it **can't** be declared anywhere in the script (i.e it can be used over and over)
+
+So you have to keep in mind that you have to initialize your functions on load if you want to call them.
+
+Keep in mind that if you are going to use the `function expression` approach, that you can't call your function before it's been declared
+
+Example:
+```
+start();
+
+const start = function() {
+    console.log('Game is starting....')
+}
+
+```
+
+You will receive an error in the console stating that you can't initialize the function before its declaration 
 
 🏠 [Back To Top](#more-about-functions)
