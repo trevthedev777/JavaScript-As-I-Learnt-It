@@ -5,7 +5,7 @@
 <hr>
 
 1. [Introduction](#introduction)
-2. [ecapping: What We Already Know](#recapping-what-we-already-know)
+2. [Recapping: What We Already Know](#recapping-what-we-already-know)
 
 ## Introduction
 
@@ -40,3 +40,29 @@ Functions can be called "directly" or "indirectly"
 ## Parameters vs Arguments
 
 <hr>
+
+Throughout this course, we will use the terms **"parameters"** and **"arguments"**, interchangeably.
+
+**Technically, there is a difference though:**
+
+**Parameters** are these variables which you **specify between parentheses** when defining a function.
+
+```
+function sayHi(name) {
+    ...
+}
+```
+
+In this example `name` is a parameter.
+
+**Arguments** then are the **concrete values** you pass to a function when calling that function:
+
+```
+sayHi('Trevor');
+```
+
+`'Trevor'` is an **argument** of the function therefore - for the `name` parameter to be precise.
+
+Since both concepts obviously are extremely close connected, we will often declare __"let's define which arguments a function receives"__, or something comparable, since defining the arguments of a function in the end means that you set up its parameters (and vice-versa)
+
+🏠 [Back To Top](#more-about-functions)
