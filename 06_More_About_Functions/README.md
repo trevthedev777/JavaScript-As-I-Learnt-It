@@ -123,6 +123,14 @@ person.greet()
 
 <hr>
 
-Functions themselves are **also methods**
+Functions themselves are **also objects**, we can explore this quite easily:
+
+```
+console.dir(startGame);
+```
+
+Now, what this does is when you access the console using your developer tools, you get to see the breakdown of this:
+
+![Function as an Object in the console](https://github.com/trevthedev777/JavaScript-As-I-Learnt-It/blob/main/Readme_imgs/Section_6_consoledir.jpg?raw=true)
 
 🏠 [Back To Top](#more-about-functions)
