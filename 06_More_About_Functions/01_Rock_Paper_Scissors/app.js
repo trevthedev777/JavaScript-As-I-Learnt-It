@@ -21,7 +21,7 @@ let gameIsRunning = false;
 //     console.log('Game is starting....')
 // }
 
-const getPlayerChoice = function() {
+const getPlayerChoice = () => {
 
     const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}?`, '').toUpperCase();
 
@@ -36,7 +36,7 @@ const getPlayerChoice = function() {
     return selection;
 }
 
-const getComputerChoice = function() {
+const getComputerChoice = () => {
     // The AI will return a numerical value that will equal the output
     const randomValue = Math.random();
     if (randomValue < 0.34) {
@@ -48,7 +48,7 @@ const getComputerChoice = function() {
     }
 };
 
-const getWinner = function(computerChoice, playerChoice) {
+const getWinner = (computerChoice, playerChoice) => {
 
     // * Core Game Logic
     if (computerChoice === playerChoice) {
@@ -69,7 +69,7 @@ const getWinner = function(computerChoice, playerChoice) {
 }
 
 // Event Listeners
-startGameBtn.addEventListener('click', function() {
+startGameBtn.addEventListener('click', () => {
     // Checks to see that you cant start a new game when a game is currently running
     if (gameIsRunning) {
         return;
