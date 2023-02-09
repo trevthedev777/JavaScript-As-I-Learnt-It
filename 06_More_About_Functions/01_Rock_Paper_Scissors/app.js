@@ -5,6 +5,9 @@ const ROCK = 'ROCK';
 const PAPER = 'PAPER';
 const SCISSORS = 'SCISSORS';
 const DEFAULT_USER_CHOICE = ROCK;
+const DRAW = 'DRAW';
+const PLAYER_WIN = 'PLAYER_WINS ';
+const AI_WIN = 'AI_WINS'
 
 let gameIsRunning = false;
 
@@ -33,6 +36,38 @@ const getPlayerChoice = function() {
     return selection;
 }
 
+const getComputerChoice = function() {
+    // The AI will return a numerical value that will equal the output
+    const randomValue = Math.random();
+    if (randomValue < 0.34) {
+        return ROCK;
+    } else if (randomValue < 0.67) {
+        return PAPER;
+    } else {
+        return SCISSORS;
+    }
+};
+
+const getWinner = function(computerChoice, playerChoice) {
+
+    // * Core Game Logic
+    if (computerChoice === playerChoice) {
+        return DRAW;
+    } else if (
+        computerChoice === ROCK && playerChoice === PAPER ||
+        computerChoice === PAPER && playerChoice === SCISSORS ||
+        computerChoice === SCISSORS && playerChoice === ROCK
+        ) {
+        return PLAYER_WIN;
+    } else if (
+        computerChoice === ROCK && playerChoice === SCISSORS ||
+        computerChoice === PAPER && playerChoice === ROCK ||
+        computerChoice === SCISSORS && playerChoice === PAPER
+        ) {
+        return AI_WIN;
+    } 
+}
+
 // Event Listeners
 startGameBtn.addEventListener('click', function() {
     // Checks to see that you cant start a new game when a game is currently running
@@ -41,6 +76,8 @@ startGameBtn.addEventListener('click', function() {
     }
     gameIsRunning = true;
     console.log('Game is starting...');
-    const playerSelection = getPlayerChoice();
-    console.log(playerSelection);
+    const playerChoice = getPlayerChoice();
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(computerChoice, playerChoice);
+    console.log(winner);
 });
