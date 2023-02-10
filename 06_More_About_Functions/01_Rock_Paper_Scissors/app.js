@@ -31,7 +31,7 @@ const getPlayerChoice = () => {
         selection !== SCISSORS 
         ) {
             alert(`Invalid Selection! ${ROCK} chosen as default`);
-            return DEFAULT_USER_CHOICE;
+            return;
         }
     return selection;
 }
@@ -48,7 +48,7 @@ const getComputerChoice = () => {
     }
 };
 
-const getWinner = (computerChoice, playerChoice) => {
+const getWinner = (computerChoice, playerChoice = DEFAULT_USER_CHOICE) => {
 
     // * Core Game Logic
     if (computerChoice === playerChoice) {
@@ -78,15 +78,41 @@ startGameBtn.addEventListener('click', () => {
     console.log('Game is starting...');
     const playerChoice = getPlayerChoice();
     const computerChoice = getComputerChoice();
-    const winner = getWinner(computerChoice, playerChoice);
-    let message;
+    let winner;
+    if (playerChoice) {
+        winner = getWinner(computerChoice, playerChoice);
+    } else  {
+        winner = getWinner(computerChoice);
+    }
+    let message = `you picked ${playerChoice || DEFAULT_USER_CHOICE}, computer picked ${computerChoice}, therefore `;
     if (winner === DRAW) {
-        message = `you picked ${playerChoice}, computer picked ${computerChoice}, therefore the match ended in a draw`
+        message = message + 'the match ended in a draw';
     } else if (winner === PLAYER_WIN) {
-        message = `you picked ${playerChoice}, computer picked ${computerChoice}, therefore you win!`
+        message = message + 'you win!';
     } else {
         message = 'Computer Wins'
     }
     alert(message);
     gameIsRunning = false;
 });
+
+// Not related to the game
+
+const sumUp = (a, b, ...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+};
+// const sumUp = (numbers) => {
+//     let sum = 0;
+//     for (const num of numbers) {
+//         sum += num;
+//     }
+//     return sum;
+// };
+
+
+// console.log(sumUp([1 , 5, 10, -3, 6, 10]));
+console.log(sumUp(1 , 5, 10, -3, 6, 10, 25, 88));

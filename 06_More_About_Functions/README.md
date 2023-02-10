@@ -12,6 +12,7 @@
 6. [Function Declarations vs Function Expressions](#function-declarations-vs-function-expressions)
 7. [Anonymous Functions](#anonymous-functions)
 8. [Arrow Functions](#arrow-functions)
+9. [Introducing Rest Parameters: The Rest Operator](#introducing-rest-parameters-the-rest-operator)
 
 ## Introduction
 
@@ -314,5 +315,84 @@ if (something) { ... }; // Clearly used to mark the if statement block
 2. Create an object which you want to return (in shorter function body form)
 
 To "tell" JavaScript what you want to do, wrap the expression (e.g. object creation) in parentheses like shown above.
+
+🏠 [Back To Top](#more-about-functions)
+
+## Introducing Rest Parameters: The Rest Operator
+
+The `Rest Parameter` is very useful, it allows your function to have as many arguments without knowing how many it will need when you create it, doesn't make sense?
+
+Let's say we have a function with 5 parameters, below example:
+
+```
+const sumUp = (a, b, c, d, e) => {
+    let sum = 0;
+    ...
+    return sum;
+}
+```
+
+So by the example above, your function when it's called, will basically need to have 5 arguments for it to work properly, there is a little way around this, hwe can declare our parameter as an array so let's take the same example, make a few miniscule changes and then see how we can use it
+
+```
+const sumUp = (numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+}
+
+console.log(sumUp([1, 5, 10, 15])); //31
+```
+
+As you can see, we have now created a parameter of the variable `numbers`, all we have to do is loop through it and create our mathematical equation and then we can call it, but... remember that when using a variable name as a parameter when we call the function, we can keep 2 things in mind:
+
+1. We can use as many arguments as possible
+2. We need to call it in an array to get the sum of the whole array;
+
+It needs to always be the last parameter in your function in order for it to work correctly, if you use the `rest parameter` first and then try to to access other parameters after, it will never be able to access that parameter that follows, Example below of incorrect use if rest parameters:
+
+```
+const sumUp = (...numbers, a) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+};
+
+console.log(sumUp(1 , 2 , 3, 5))
+```
+
+The parameter of `a` is never accessed.
+
+With `Rest Parameters` we can only use them once in every function, we can not use multiple ones or else we will get an error, keeping in mind that the rest parameter allows us to call the function with our argumenbts and without having to call them in an `array`
+
+```
+const sumUp = (...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+};
+
+console.log(sumUp(1 , 5, 10, -3, 6, 10, 25, 88)); // 142
+```
+
+You can have parameters in front of the `Rest Parameter`, and they will work just fine, the parameters that come first will be merged (depending on what they are) and the rest parameter will then combine all arguments that follow:
+
+```
+const sumUp = (a, b, ...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+};
+
+console.log(sumUp(1 , 5, 10, -3, 6, 10, 25, 88)); // 136
+```
 
 🏠 [Back To Top](#more-about-functions)
