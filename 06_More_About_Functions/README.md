@@ -13,6 +13,7 @@
 7. [Anonymous Functions](#anonymous-functions)
 8. [Arrow Functions](#arrow-functions)
 9. [Introducing Rest Parameters: The Rest Operator](#introducing-rest-parameters-the-rest-operator)
+10. [Working with bind()](#working-with-bind)
 
 ## Introduction
 
@@ -394,5 +395,11 @@ const sumUp = (a, b, ...numbers) => {
 
 console.log(sumUp(1 , 5, 10, -3, 6, 10, 25, 88)); // 136
 ```
+
+🏠 [Back To Top](#more-about-functions)
+
+## Working with bind()
+
+<hr>
 
 🏠 [Back To Top](#more-about-functions)
