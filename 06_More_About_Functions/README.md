@@ -182,7 +182,7 @@ const multiply = function(a, b) {
 
 So there is a slight difference between writing them these different ways and that is:
 
--   With a `function declaration`, it gets goisted to the top and it can ve declared anywhere in the file, and is can also be reused throughout the script (i.e also after its used)
+-   With a `function declaration`, it gets hoisted to the top and it can ve declared anywhere in the file, and is can also be reused throughout the script (i.e also after its used)
 
 -   With `function expressions`, it also gets hoisted but it does not get initialized/defined, it **can't** be declared anywhere in the script (i.e it can be used over and over)
 
@@ -300,7 +300,7 @@ _Noteworthy: Curly braces and return statement can be omitted, expression result
 const loadPerson = pName => ({ name: pName});
 ```
 
-_Noteworthy: Extra parentheses are required around the object, since the curly braces would otherwise be interepreted as the function body delimiters (and hence a syntax error would be thrown here)_
+_Noteworthy: Extra parentheses are required around the object, since the curly braces would otherwise be interpreted as the function body delimiters (and hence a syntax error would be thrown here)_
 
 The last case can be confusing: Normally, in JavaScript, curly braces always can have exactly one meaning.
 
@@ -367,7 +367,7 @@ console.log(sumUp(1 , 2 , 3, 5))
 
 The parameter of `a` is never accessed.
 
-With `Rest Parameters` we can only use them once in every function, we can not use multiple ones or else we will get an error, keeping in mind that the rest parameter allows us to call the function with our argumenbts and without having to call them in an `array`
+With `Rest Parameters` we can only use them once in every function, we can not use multiple ones or else we will get an error, keeping in mind that the rest parameter allows us to call the function with our arguments and without having to call them in an `array`
 
 ```
 const sumUp = (...numbers) => {
