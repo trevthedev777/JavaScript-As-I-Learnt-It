@@ -9,6 +9,7 @@
 3. [Document & Window Object](#document--window-object)
 4. [Understanding the DOM and how it's created](#understanding-the-dom-and-how-its-created)
 5. [Querying the DOM](#querying-the-dom)
+6. [Summary: Node Query Methods](#summary-node-query-methods)
 
 ## Introduction
 
@@ -135,5 +136,55 @@ Different ways of querying elements (by CSS selector. by tag name, by CSS class)
 | Attributes create "attribute nodes"                 | Can be created and removed with using JavaScript               |
 
 [Nodes MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType)
+
+🏠 [Back To Top](#working-with-the-dom)
+
+## Summary: Node Query Methods
+
+<hr>
+
+Here's a summary of the various methods you got to reach out to the DOM elements (note: you can only query for element nodes).
+
+Besides the below query methods, you also got these special properties on the document object to select parts of the document:
+
+`document.body` => Selects the `<body>` element node.
+`document.head` => Selects the `<head>` element node.
+`document.documentElement` => Selects the `<html>` element node.
+
+**QUERY METHODS**
+
+1. `document.querySelector(<CSS selector>);`
+
+Takes any CSS selector (e.g. `#some-id`, `some-class` or `div p.some-class`) and returns the first matching element in the DOM. Returns `null` if no matching element could be found
+
+[Query Selector MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+
+2. `document.getElementById(<ID>);`
+
+Takes an ID (without `#`, just the ID name) and returns the element that has this id. Since the same ID shouldn't occur more than once on your page, it'll always return exactly that one element. Returns `null` if no element with the specified ID could be found.
+
+[getElementById MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
+
+3. `document.querySelectorAll(<CSS selector>);`
+
+Takes a CSS class (e.g. `some-class`) and returns a live `HTMLCollection` of matched elements in your DOM. Returns an empty `HTMLCollection` if not matching elements were found.
+
+[getElementsByClassName MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
+
+4. `document.getElementsByTagName(<HTML TAG>);`
+
+takes an HTML tahe (e.g. `p`) and returns a live `HTMLCollection` of matched elements in your DOM. returns an empty `HTMLCollection if not matching elements were found
+
+[getElementsByTagName MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)
+
+There is also the `getElementsByName()` method which isn't really used commonly
+
+[getElementsByName MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName)
+
+🏠 [Back To Top](#working-with-the-dom)
+
+## Evaluating & Manipulating Elements
+
+<hr>
 
 🏠 [Back To Top](#working-with-the-dom)
